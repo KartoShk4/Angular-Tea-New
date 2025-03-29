@@ -1,25 +1,3 @@
-<nav class="container-fluid pb-3 p-0">
-  <div class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Logo</a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Главная</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active">Каталог</a>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Поиск чая" aria-label="Поиск">
-          <button class="btn hvr-sweep-to-top">Найти</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</nav>
-
 <header class="container">
   <header class="container pt-3" style="position: relative; z-index: 5;">
     <div class="slider">
@@ -76,10 +54,6 @@
     </div>
   </div>
 </header>
-
-<footer class="container-fluid bg-body-tertiary p-3">
-  <a class="navbar-brand">&copy; Все права защищены 2025</a>
-</footer>
 
 <dialog #myDialog class="dialog" id="myDialog">
   <div class="modal-dialog">
