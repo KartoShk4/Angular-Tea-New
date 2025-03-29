@@ -1,1 +1,97 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.hvr-sweep-to-top {
+  transition-duration: 0.3s;
+  border: 1px solid #0d6efd;
+}
+
+.hvr-sweep-to-top:hover {
+  border: 1px solid #0d6efd;
+}
+
+.hvr-sweep-to-top:before {
+  border-radius: 4.5px;
+  transition-duration: 0.4s;
+  background: #0d6efd;
+}
+
+:not(.btn-check) + .btn:active {
+  color: #FFF;
+  border-color: transparent;
+}
+
+.slider {
+  position: relative;
+}
+
+.slick-slide {
+  height: 640px;
+  background-size: cover;
+  background-position: center;
+  display: flex !important;
+  align-items: center;
+  justify-content: start;
+}
+
+.btn-wide {
+  width: 170px;
+  outline: none;
+}
+
+.btn-wide:hover {
+  background: transparent;
+  border: 1px solid #0d6efd;
+}
+
+.accordion-header {
+  cursor: pointer;
+  position: relative;
+}
+
+.accordion-header::after {
+  position: absolute;
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  right: 20px;
+  top: 40%;
+  transform: rotate(225deg);
+  transition: transform 0.2s;
+}
+
+.accordion-header.collapsed::after {
+  transform: translateY(-10%) rotate(45deg);
+}
+
+.accordion-body {
+  display: none;
+}
+
+.accordion-body.show {
+  display: block;
+}
+
+.error .form-control {
+  border-color: red;
+}
+
+.error-label {
+  display: block;
+  color: red;
+  margin-bottom: 5px;
+}
+
+.form-text {
+  display: none;
+}
+
