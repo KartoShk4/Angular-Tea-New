@@ -15,8 +15,7 @@ import {delay, of, Subject, takeUntil} from "rxjs";
 export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
   // Получаем доступ к диалоговому окну
   @ViewChild('myDialog') dialog: any;
-  // Указываем что диалоговое окно не показывается при загрузке страницы
-  showDialog: boolean = false;
+
   // Создали переменную для управления отмены подписок на Observable
   private destroy$ = new Subject<void>();
 
@@ -39,12 +38,14 @@ export class MainComponent implements AfterViewInit, OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
+  // Закрываем диалоговое окно
   closeDialog(): void {
     if (this.dialog) {
       this.dialog.nativeElement.close();
     }
   }
 
+  // Для JQuery
   ngAfterViewInit(): void {
     // Настройка и инициализация `accordion`
     ($('#accordion') as any).accordion({
