@@ -16,8 +16,10 @@
         <div class="invalid-feedback"
              *ngIf="checkoutForm.get('firstName')?.invalid
               && (checkoutForm.get('firstName')?.touched || checkoutForm.get('firstName')?.dirty)">
-          <span
-            *ngIf="checkoutForm.get('firstName')?.errors?.['required']">Поле "Имя" обязательно для заполнения.</span>
+          <span *ngIf="checkoutForm.get('firstName')?.errors?.['required']">Поле "Имя" обязательно для заполнения.</span>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('firstName')?.errors?.['pattern']">
+            Данное поле может содержать только буквы.
+          </div>
         </div>
       </div>
 
@@ -28,8 +30,10 @@
         <div class="invalid-feedback"
              *ngIf="checkoutForm.get('secondName')?.invalid
               && (checkoutForm.get('secondName')?.touched || checkoutForm.get('secondName')?.dirty)">
-          <span
-            *ngIf="checkoutForm.get('secondName')?.errors?.['required']">Поле "Фамилия" обязательно для заполнения.</span>
+          <span *ngIf="checkoutForm.get('secondName')?.errors?.['required']">Поле "Фамилия" обязательно для заполнения.</span>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('secondName')?.errors?.['pattern']">
+            Данное поле может содержать только буквы.
+          </div>
         </div>
       </div>
 
@@ -40,8 +44,7 @@
         <div class="invalid-feedback"
              *ngIf="checkoutForm.get('phone')?.invalid
               && (checkoutForm.get('phone')?.touched || checkoutForm.get('phone')?.dirty)">
-          <span
-            *ngIf="checkoutForm.get('phone')?.errors?.['required']">Поле "Телефон" обязательно для заполнения.</span>
+          <span *ngIf="checkoutForm.get('phone')?.errors?.['required']">Поле "Телефон" обязательно для заполнения.</span>
           <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.errors?.['pattern']">
             Номер телефона введен некорректно.
           </div>
@@ -56,8 +59,7 @@
         <div class="invalid-feedback"
              *ngIf="checkoutForm.get('country')?.invalid
               && (checkoutForm.get('country')?.touched || checkoutForm.get('country')?.dirty)">
-          <span
-            *ngIf="checkoutForm.get('country')?.errors?.['required']">Поле "Страна" обязательно для заполнения.</span>
+          <span *ngIf="checkoutForm.get('country')?.errors?.['required']">Поле "Страна" обязательно для заполнения.</span>
         </div>
 
       </div>

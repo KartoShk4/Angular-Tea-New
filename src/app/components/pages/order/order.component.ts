@@ -9,8 +9,8 @@ import {FormBuilder, Validators} from "@angular/forms";
 export class OrderComponent {
 
   checkoutForm = this.fb.group({
-    firstName: ['', Validators.required],
-    secondName: ['', Validators.required],
+    firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-ZА-Яа-яЁё]+$/)]],
+    secondName: ['', [Validators.required, Validators.pattern(/^[a-zA-ZА-Яа-яЁё]+$/)]],
     phone: ['', [Validators.required, Validators.pattern(/^\+?\d{11}$/)]],
     country: ['', Validators.required],
     zip: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]],
