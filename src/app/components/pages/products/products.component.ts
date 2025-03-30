@@ -27,4 +27,10 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  buyProduct(product: ProductType) {
+    // Переходим на страницу с продуктом и передаем параметр в URL
+    this.router.navigate(['/order'], { queryParams: { product: product.title } });
+  }
+
+
 }

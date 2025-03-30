@@ -4,9 +4,10 @@
 
     <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()" novalidate class="needs-validation row g-3"
           name="my-form">
+
       <div class="col-md-12 input-box">
         <label for="inputNameProduct" class="form-label">Товар</label>
-        <input type="text" class="form-control" id="inputNameProduct" readonly>
+        <input type="text" class="form-control" id="inputNameProduct" formControlName="product" readonly>
       </div>
 
       <div class="col-md-4 input-box">
@@ -27,8 +28,7 @@
         <label for="secondName" class="form-label">Фамилия</label>
         <input type="text" class="form-control" id="secondName"
                formControlName="secondName">
-        <div class="invalid-feedback"
-             *ngIf="checkoutForm.get('secondName')?.invalid
+        <div class="invalid-feedback" *ngIf="checkoutForm.get('secondName')?.invalid
               && (checkoutForm.get('secondName')?.touched || checkoutForm.get('secondName')?.dirty)">
           <span *ngIf="checkoutForm.get('secondName')?.errors?.['required']">Поле "Фамилия" обязательно для заполнения.</span>
           <div class="invalid-feedback" *ngIf="checkoutForm.get('secondName')?.errors?.['pattern']">
@@ -90,18 +90,21 @@
           </div>
         </div>
       </div>
+
       <div class="col-md-12 input-box">
         <label for="comment" class="form-label">Комментарий к заказу</label>
-        <textarea type="text" class="form-control" id="comment"></textarea>
+        <textarea type="text" class="form-control" id="comment"
+                  formControlName="comment"></textarea>
       </div>
+
       <div class="col-12 input-box">
-        <button type="submit" class="btn btn-primary">Заказать</button>
+        <button type="submit" class="btn btn-success">Заказать</button>
       </div>
     </form>
   </div>
 
   <div class="form-text mt-5 p-3 border border-success rounded h3 text-center text-light bg-success"
-       id="form-message">
+       id="form-message" *ngIf="orderSuccess">
     <span>Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</span>
   </div>
 </div>

@@ -5,6 +5,6 @@
     </div>
   </div>
   <div class="card-block">
-    <product-card-component *ngFor="let product of products" [product]="product"></product-card-component>
+    <product-card-component *ngFor="let product of products" [product]="product" (click)="buyProduct(product)"></product-card-component>
   </div>
 </main>

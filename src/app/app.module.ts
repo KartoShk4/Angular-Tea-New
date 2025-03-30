@@ -12,7 +12,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { ProductCardComponent } from './components/common/product-card/product-card.component';
 import {RouterModule} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,13 +25,14 @@ import {ReactiveFormsModule} from "@angular/forms";
     FooterComponent,
     ProductCardComponent,
   ],
-  imports: [
-    RouterModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
+    imports: [
+        RouterModule,
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
