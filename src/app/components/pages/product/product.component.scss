@@ -1,0 +1,17 @@
+.card {;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  margin: 0 50px;
+}
+
+.card-image {
+  width: 250px;
+  height: 250px;
+}
+
+.card-price {
+  border-radius: 5px;
+  border: 1px solid blue;
+  padding: 2px 5px;
+}

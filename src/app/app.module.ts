@@ -9,6 +9,10 @@ import { ProductsComponent } from './components/pages/products/products.componen
 import { ProductComponent } from './components/pages/product/product.component';
 import { HeaderComponent } from './components/common/header/header.component';
 import { FooterComponent } from './components/common/footer/footer.component';
+import { ProductCardComponent } from './components/common/product-card/product-card.component';
+import {RouterModule} from "@angular/router";
+import {ProductService} from "./services/product.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,11 +22,14 @@ import { FooterComponent } from './components/common/footer/footer.component';
     ProductsComponent,
     ProductComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProductCardComponent,
   ],
   imports: [
+    RouterModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

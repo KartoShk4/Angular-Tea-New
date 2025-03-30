@@ -1,1 +1,11 @@
-<p>product works!</p>
+<div class="card">
+  <img src="{{product.image}}" alt="card-tea" class="card-img-top card-image">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.title }}
+      <span class="card-price">{{ product.price }} ₽</span>
+    </h5>
+    <p class="card-text">{{ product.description }}</p>
+    <a routerLink="/order" [queryParams]="{product: product.title}" class="btn btn-primary mb-2">Купить</a>
+  </div>
+</div>
+
