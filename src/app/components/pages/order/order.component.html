@@ -1,36 +1,106 @@
-<div class="form col-lg-6 mx-auto pb-5" id="inputForm">
-  <h2 class="h2 text-center p-5"><strong>Сделать заказ</strong></h2>
-  <form class="row g-3" name="my-form">
-    <div class="col-md-4 input-box">
-      <label for="inputFirstName" class="form-label">Имя</label>
-      <input type="text" class="form-control" id="inputFirstName">
-    </div>
-    <div class="col-md-4 input-box">
-      <label for="inputSecondName" class="form-label">Фамилия</label>
-      <input type="text" class="form-control" id="inputSecondName">
-    </div>
-    <div class="col-4 input-box">
-      <label for="inputPhone" class="form-label">Телефон</label>
-      <input type="text" class="form-control" id="inputPhone">
-    </div>
-    <div class="col-6 input-box">
-      <label for="inputCountry" class="form-label">Страна</label>
-      <input type="text" class="form-control" id="inputCountry">
-    </div>
-    <div class="col-md-6 input-box">
-      <label for="inputZip" class="form-label">Индекс</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-    <div class="col-md-12 input-box">
-      <label for="inputAddress" class="form-label">Адрес</label>
-      <input type="text" class="form-control" id="inputAddress">
-    </div>
-    <div class="col-12 input-box">
-      <button type="submit" class="btn hvr-sweep-to-top out">Заказать</button>
-    </div>
-  </form>
+<div class="container">
+  <div class="col-lg-6 mx-auto pb-5" id="inputForm">
+    <h2 class="h2 text-center p-5"><strong>Сделать заказ</strong></h2>
+
+    <form [formGroup]="checkoutForm" (ngSubmit)="submitForm()" novalidate class="needs-validation row g-3"
+          name="my-form">
+      <div class="col-md-12 input-box">
+        <label for="inputNameProduct" class="form-label">Товар</label>
+        <input type="text" class="form-control" id="inputNameProduct" readonly>
+      </div>
+
+      <div class="col-md-4 input-box">
+        <label for="firstName" class="form-label">Имя</label>
+        <input type="text" class="form-control" id="firstName"
+               formControlName="firstName">
+        <div class="invalid-feedback"
+             *ngIf="checkoutForm.get('firstName')?.invalid
+              && (checkoutForm.get('firstName')?.touched || checkoutForm.get('firstName')?.dirty)">
+          <span
+            *ngIf="checkoutForm.get('firstName')?.errors?.['required']">Поле "Имя" обязательно для заполнения.</span>
+        </div>
+      </div>
+
+      <div class="col-md-4 input-box">
+        <label for="secondName" class="form-label">Фамилия</label>
+        <input type="text" class="form-control" id="secondName"
+               formControlName="secondName">
+        <div class="invalid-feedback"
+             *ngIf="checkoutForm.get('secondName')?.invalid
+              && (checkoutForm.get('secondName')?.touched || checkoutForm.get('secondName')?.dirty)">
+          <span
+            *ngIf="checkoutForm.get('secondName')?.errors?.['required']">Поле "Фамилия" обязательно для заполнения.</span>
+        </div>
+      </div>
+
+      <div class="col-4 input-box">
+        <label for="phone" class="form-label">Телефон</label>
+        <input type="text" class="form-control" id="phone"
+               formControlName="phone">
+        <div class="invalid-feedback"
+             *ngIf="checkoutForm.get('phone')?.invalid
+              && (checkoutForm.get('phone')?.touched || checkoutForm.get('phone')?.dirty)">
+          <span
+            *ngIf="checkoutForm.get('phone')?.errors?.['required']">Поле "Телефон" обязательно для заполнения.</span>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('phone')?.errors?.['pattern']">
+            Номер телефона введен некорректно.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-6 input-box">
+        <label for="country" class="form-label">Страна</label>
+        <input type="text" class="form-control" id="country"
+               formControlName="country">
+        <div class="invalid-feedback"
+             *ngIf="checkoutForm.get('country')?.invalid
+              && (checkoutForm.get('country')?.touched || checkoutForm.get('country')?.dirty)">
+          <span
+            *ngIf="checkoutForm.get('country')?.errors?.['required']">Поле "Страна" обязательно для заполнения.</span>
+        </div>
+
+      </div>
+      <div class="col-md-6 input-box">
+        <label for="zip" class="form-label">Индекс</label>
+        <input type="text" class="form-control" id="zip"
+               formControlName="zip">
+        <div class="invalid-feedback"
+             *ngIf="checkoutForm.get('zip')?.invalid
+              && (checkoutForm.get('zip')?.touched || checkoutForm.get('zip')?.dirty)">
+          <span *ngIf="checkoutForm.get('zip')?.errors?.['required']">Поле "Индекс" обязательно для заполнения.</span>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('zip')?.errors?.['pattern']">
+            В индекс должно быть только 6 цифр.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 input-box">
+        <label for="address" class="form-label">Адрес</label>
+        <input type="text" class="form-control" id="address"
+               formControlName="address">
+        <div class="invalid-feedback"
+             *ngIf="checkoutForm.get('address')?.invalid
+              && (checkoutForm.get('address')?.touched || checkoutForm.get('address')?.dirty)">
+          <span *ngIf="checkoutForm.get('address')?.errors?.['required']">Поле "Адрес" обязательно для заполнения.</span>
+          <div class="invalid-feedback" *ngIf="checkoutForm.get('address')?.errors?.['pattern']">
+            Можно вводить только: буквы, цифры, пробелы, дефис и слеш.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 input-box">
+        <label for="comment" class="form-label">Комментарий к заказу</label>
+        <textarea type="text" class="form-control" id="comment"></textarea>
+      </div>
+      <div class="col-12 input-box">
+        <button type="submit" class="btn btn-primary">Заказать</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="form-text mt-5 p-3 border border-success rounded h3 text-center text-light bg-success"
+       id="form-message">
+    <span>Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</span>
+  </div>
 </div>
-<div class="form-text mt-5 p-3 border border-success rounded h3 text-center text-light bg-success"
-     id="form-message">
-  <span>Спасибо за заказ. Мы свяжемся с вами в ближайшее время!</span>
-</div>
+

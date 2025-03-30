@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormBuilder, Validators} from "@angular/forms";
 
 @Component({
   selector: 'order-component',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class OrderComponent {
 
-  constructor() { }
+  checkoutForm = this.fb.group({
+    firstName: ['', Validators.required],
+    secondName: ['', Validators.required],
+    phone: ['', [Validators.required, Validators.pattern(/^\+?\d{11}$/)]],
+    country: ['', Validators.required],
+    zip: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]],
+    address: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9А-Яа-яЁё\s\-\/]+$/)]],
+  });
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) {
   }
 
+  submitForm() {
+    if (this.checkoutForm.valid) {
+      console.log('Форма успешно отправлена', this.checkoutForm.value);
+    } else {
+      console.log('Форма содержит ошибки');
+    }
+  }
 }
