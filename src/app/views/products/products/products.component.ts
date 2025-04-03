@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductService} from "../../../services/product.service";
+import {ProductService} from "../../../shared/services/product.service";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {ProductType} from "../../types/product.type";
+import {ProductType} from "../../../../types/product.type";
 
 @Component({
   selector: 'products-component',

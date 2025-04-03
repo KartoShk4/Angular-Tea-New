@@ -1,6 +1,6 @@
 import {Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
-import {ProductType} from "../../types/product.type";
-import {CartProductService} from "../../../services/cart-product.service";
+import {ProductType} from "../../../types/product.type";
+import {CartProductService} from "../services/cart-product.service";
 
 @Component({
   selector: 'product-card-component',
@@ -9,7 +9,7 @@ import {CartProductService} from "../../../services/cart-product.service";
 })
 export class ProductCardComponent{
 
-  @Input() product: ProductType;
+  @Input() product: any;
   @Output() addToCartEvent: EventEmitter<string> = new EventEmitter<string>();
 
   @ViewChild('elem')
