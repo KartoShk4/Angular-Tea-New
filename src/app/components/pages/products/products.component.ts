@@ -14,15 +14,18 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService, private http: HttpClient, private router: Router) { }
 
   products: ProductType[] = [];
+  loading: boolean = true;
 
   ngOnInit() {
     this.productService.getProducts().subscribe({
       next: (data) => {
         this.products = data;
+        this.loading = false;
       },
       error: (error) => {
         console.log(error);
         this.router.navigate(['/']).then();
+        this.loading = false;
       }
     })
   }

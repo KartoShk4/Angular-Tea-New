@@ -1,4 +1,12 @@
 <main class="container">
+
+  <!-- Лоадер (спиннер) -->
+  <div *ngIf="loading" class="d-flex justify-content-center align-items-center" style="height: 50vh;">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Загрузка...</span>
+    </div>
+  </div>
+
   <div class="row d-flex">
     <div class="col-12 h1 text-center p-5" style="position: relative; z-index: 5;">
       <strong>Наши чайные коллекции</strong>

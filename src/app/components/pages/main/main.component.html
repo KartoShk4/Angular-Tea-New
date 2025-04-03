@@ -1,70 +1,73 @@
-<header class="container">
-  <header class="container pt-3" style="position: relative; z-index: 5;">
+<section class="images container">
+  <div class="container pt-3" style="position: relative; z-index: 5;">
     <div class="slider">
       <div class="slick-slide" style="background-image: url('assets/images/slider/slider001.png');"></div>
     </div>
-  </header>
+  </div>
+</section>
 
+<section class="faq container">
   <div class="faq" style="overflow: hidden">
-    <h2 class="h2 text-center p-5"><strong>Часто задаваемые вопросы</strong>
-    </h2>
-    <div id="accordion" class="accordion">
-      <h3 class="p-4 rounded-3 mb-3 bg-primary text-white accordion-header collapsed" id="acc-1">
-        <strong>Собираете ли вы подарочные боксы?</strong></h3>
-      <div class="border-0">
-        <p class="my-2">
+    <h2 class="h2 text-center p-5"><strong>Часто задаваемые вопросы</strong></h2>
+    <ngb-accordion #acc="ngbAccordion" [activeIds]="[]" activeIds="panel-1" class="accordion accordion-flash">
+      <ngb-panel id="panel-1">
+        <ng-template ngbPanelTitle class="p-4">
+          <span>Собираете ли вы подарочные боксы?</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
           Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой вкус, объем и стоимость!
-        </p>
-      </div>
-      <h3 class="p-4 rounded-3 mb-3 bg-primary text-white accordion-header collapsed" id="acc-2">
-        <strong>Сколько у вас
-          разновидностей чая?</strong></h3>
-      <div class="border-0">
-        <p class="my-2">
-          На данный момент у нас шесть разновидностей чая, но в будущем будут появляться новые!
-        </p>
-      </div>
-      <h3 class="p-4 rounded-3 mb-3 bg-primary text-white accordion-header collapsed" id="acc-3">
-        <strong>В какой срок
-          осуществляется доставка?</strong>
-      </h3>
-      <div class="border-0">
-        <p class="my-2">
-          После вашего заказа, чай привезут вам уже на следующий день в пункт выдачи или курьером по
-          вашему
-          желанию.
-        </p>
-      </div>
-      <h3 class="p-4 rounded-3 mb-3 bg-primary text-white accordion-header collapsed" id="acc-4">
-        <strong>У вас обновляется
-          ассортимент?</strong></h3>
-      <div class="border-0">
-        <p class="my-2">
-          Да, мы постоянно обновляем свой ассортимент. За последний месяц мы добавили 2 новых сорта чая.
-        </p>
-      </div>
-      <h3 class="p-4 rounded-3 bg-primary text-white accordion-header collapsed" id="acc-5">
-        <strong>Какого объема у вас пачки
-          чая?</strong></h3>
-      <div class="border-0">
-        <p class="my-2">
-          Объем одной пачки составляет 250 грамм.
-        </p>
-      </div>
-    </div>
-  </div>
-</header>
+        </ng-template>
+      </ngb-panel>
 
-<dialog #myDialog class="dialog" id="myDialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <a class="btn-close" (click)="closeDialog()"></a>
-      <div class="modal-body">
-        <p class="text-center g-3 h4">Посмотрите наши чайные коллекции</p>
-      </div>
-      <div class="modal-footer">
-        <a class="btn btn-primary" [routerLink]="['/products']">Смотреть</a>
-      </div>
-    </div>
+      <ngb-panel id="panel-2" >
+        <ng-template ngbPanelTitle class="p-4">
+          <span>Сколько у вас разновидностей чая?</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          На данный момент у нас шесть разновидностей чая, но в будущем будут появляться новые!
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel id="panel-3">
+        <ng-template ngbPanelTitle class="p-4">
+          <span>В какой срок осуществляется доставка?</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          После вашего заказа, чай привезут вам уже на следующий день в пункт выдачи или курьером по вашему желанию.
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel id="panel-4">
+        <ng-template ngbPanelTitle class="p-4">
+          <span>У вас обновляется ассортимент?</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          Да, мы постоянно обновляем свой ассортимент. За последний месяц мы добавили 2 новых сорта чая.
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel id="panel-5">
+        <ng-template ngbPanelTitle class="p-4">
+          <span>Какого объема у вас пачки чая?</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          Объем одной пачки составляет 250 грамм.
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
   </div>
-</dialog>
+</section>
+
+<ng-template #myDialog let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body text-center">
+    <p class="h4">Посмотрите наши чайные коллекции</p>
+  </div>
+  <div class="modal-footer">
+    <a class="btn btn-primary" [routerLink]="['/products']" (click)="modal.close()">Смотреть</a>
+  </div>
+</ng-template>
+
+
